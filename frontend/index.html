@@ -91,9 +91,6 @@
             z-index: 1000;
         }
 
-        .logo img {
-            height: 50px;
-        }
 
  nav {
   width: 100%;
@@ -526,12 +523,6 @@ html, body {
     transform-origin: top left;
 }
 
-@keyframes moveLogo {
-    0% { transform: translateX(0); } /* Vị trí ban đầu */
-    50% { transform: translateX(20px); } /* Dịch sang phải */
-    100% { transform: translateX(0); } /* Quay lại ban đầu */
-}
-
 .logo img {
         height: 80px;
 	animation: moveLogo 3s infinite ease-in-out; /* Lặp vô hạn */
@@ -544,29 +535,8 @@ html, body {
             color: white;
  }
 
-.logo {
-  flex-shrink: 0;
-  margin-right: auto; /* đẩy logo về trái */
-  padding-left: 10px;
-}
 
-.page-logo {
-    display: flex;
-    justify-content: center; /* ✅ căn ngang giữa */
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: white;
-}
-
-.page-logo img {
-    height: 60px;
-    max-width: 90%;
-    object-fit: contain;
-}
-
-
-    </style>
+</style>
 
 
 <header>
@@ -615,11 +585,6 @@ html, body {
 
 
 <body>
-
-<!-- Logo cố định đầu trang (ngoài header) -->
-<div class="page-logo">
-  <img src="static/images/logo.png" alt="LeLife">
-</div>
 
     <section id="about-section" class="content-section">
         <div class="profile-picture">
