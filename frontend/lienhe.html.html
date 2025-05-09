@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<title>Giới thiệu</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/js/script.js"></script>
+</head>
+
+<!-- TOÀN BỘ CSS và BODY CỦA TRANG -->
+
+    <style>
+
+         body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding-top: 70px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+.container,
+#about-section,
+.about-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+        h1, h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            text-align: justify;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 10px;
+        }
+
+        ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+.button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #45a049;
+    }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: black;
+            color: white;
+            padding: 0px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding: 0;
+  margin: 10px auto;
+  background-color: transparent;
+  transform: translateX(-20px);  /* ✅ Dịch nhẹ sang trái để vào đúng giữa */
+}
+
+
+.nav-bar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  padding: 0 6px;
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.nav-bar li {
+  list-style: none;  /* ✅ Xoá dấu chấm */
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: Tối ưu khoảng cách trên màn hình nhỏ */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+.dropdown-menu {
+    top: 100%;
+    right: auto;
+    background-color: #ffffff;
+    border: none;              /* ✅ nếu muốn bỏ luôn viền khung ngoài */    
+    border-radius: 5px;
+    min-width: 150px;
+    padding: 4px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+.nav-bar {
+  display: flex;
+ justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+  margin: 0 auto;
+  padding: 0 8px;
+  list-style: none;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  transform: scale(0.95); /* ✅ Co nhẹ toàn bộ khối */
+}
+    .nav-bar a {
+    display: inline-block;
+    font-size: 14px;
+    color: white;
+    background-color: #4CAF50;
+    padding: 6px 10px; /* ✅ nhỏ gọn lại */
+    border-radius: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    min-width: unset;  /* ✅ bỏ giới hạn chiều rộng tối thiểu */
+    max-width: unset;  /* ✅ không giới hạn chiều rộng tối đa */
+    margin: 0 4px;     /* ✅ thu hẹp khoảng cách ngang */
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+
+
+}
+
+.nav-bar a:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 480px) {
+  .nav-bar li a {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .nav-bar {
+    gap: 0px;
+    justify-content: center;     /* ✅ Căn giữa ngang */
+    margin: 0 auto;              /* ✅ Căn giữa trong khối cha */
+
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-bar {
+    justify-content: center;
+    gap: 16px; /* Giảm khoảng cách giữa các button */
+  }
+
+  .nav-bar li a {
+    font-size: 14px;
+    padding: 8px 14px; /* Nút to vừa, không chiếm quá nhiều */
+  }
+}
+
+.auth-links a {
+    color: white;
+    font-weight: bold;
+    margin-left: 1050px;
+}
+
+.auth-links a:hover {
+    color: #4CAF50;
+}
+
+/* Nút Demos */
+.nav-bar li a {
+  font-size: 13px;
+  padding: 5px 7px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  flex-shrink: 1;           /* ✅ Cho phép co nhỏ khi cần */
+   
+}
+
+.nav-bar li a:hover {
+  background-color: #f2f2f2;     /* ✅ Hover nhẹ nhàng, vẫn là tone trắng-xám */
+  color: black;
+}
+
+/* Căn chỉnh nút Đăng nhập/Đăng ký */
+.auth-buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons a {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons a:hover {
+    background-color: #45a049;
+}
+
+
+/* Hiển thị dropdown khi rê chuột hoặc click */
+.dropdown:hover .dropdown-menu,
+.dropdown.open .dropdown-menu {
+    display: block;
+    z-index: 9999; /* Menu con luôn nằm trên các thành phần khác */
+
+}
+
+/* Menu con */
+.dropdown-menu {
+    display: none;    /* Ẩn menu mặc định */
+    position: absolute; 	/* Đảm bảo menu xuất hiện tại vị trí cố định */
+    top: 100%; 	/* Đặt menu ngay bên dưới mục "Demos" */
+    right: 20;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Ưu tiên hiển thị cao nhất */
+    max-width: 100%; /* Giới hạn chiều rộng tối đa */
+    flex-direction: column; /* Hiển thị theo chiều dọc */
+    padding: 4px 0;
+    min-width: 140px;      /* ✅ giới hạn tối thiểu – không quá to */
+    width: 140px;          /* ✅ cố định chiều rộng để đồng đều */
+
+}
+
+.dropdown-menu * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Dropdown items */
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  border: none;              /* ✅ bỏ viền */
+  border-radius: 0;          /* ✅ bỏ bo tròn nếu không cần */
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.dropdown {
+  position: relative; /* ✅ Quan trọng: để dropdown-menu căn theo vị trí button */
+}
+
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0; /* Hiển thị nền khi hover */
+    color: #000; /* Màu chữ khi hover */
+
+}
+
+/* About Section Styling */
+#about-section {
+    padding: 16px 20px;   /* ✅ Giảm padding nếu quá rộng */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;    /* ✅ Center và sát lề hơn */
+    max-width: 1200px;    /* Hoặc 90% để mượt hơn */
+}
+
+/* Chỉ định ảnh trong trang Giới Thiệu */
+#about-section .profile-picture {
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung */
+    margin-top: 20px;
+}
+
+#about-section .profile-picture img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #4CAF50;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #4CAF50;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.about-content h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.about-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover {
+    display: block;
+}
+
+
+/* Nội dung chính chỉnh z-index thấp hơn dropdown */
+.input-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+   /* Chỉnh lại bảng dữ liệu */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+
+#login-section, #change-password-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Hiển thị trên các phần khác nếu cần */
+
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    margin-top: 20px; /* Thêm khoảng cách phía trên */
+    gap: 15px; /* Khoảng cách giữa 2 nút */
+}
+
+.action-buttons button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.action-buttons button:hover {
+    background-color: #45a049;
+}
+
+.submenu-list {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    min-width: 150px;
+}
+
+
+
+/* Hiển thị menu con khi hover */
+.dropdown-menu li:hover .submenu-list {
+    display: block;
+}
+
+/* Giữ menu con mở khi hover */
+.dropdown.open .submenu-list {
+    display: block;
+}
+
+.fixed-title {
+    position: fixed; /* Đặt tiêu đề cố định */
+    top: 10px; /* Cách phía trên 10px */
+    left: 10px; /* Cách bên trái 10px */
+    margin: 0; /* Loại bỏ margin mặc định */
+    font-size: 1rem; /* Cỡ chữ phù hợp */
+    font-weight: bold; /* In đậm tiêu đề */
+    color: black; /* Màu chữ xanh lá */
+    background-color: white; /* Nền trắng cho dễ nhìn */
+    padding: 5px 15px; /* Tạo khoảng cách bên trong cho tiêu đề */
+    border-radius: 5px; /* Bo góc nhẹ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tạo đổ bóng nhẹ */
+    z-index: 1000; /* Đảm bảo tiêu đề luôn nằm trên các phần tử khác */
+}
+
+.section-header.highlight {
+background: linear-gradient(135deg, #ffffff, #f5f5f5); /* Trắng pha xám sáng nhẹ */
+    color: white; /* Màu chữ nổi bật */
+    padding: 5px; /* Khoảng cách hợp lý */
+    margin: 5px auto; /* Khoảng cách trên dưới */
+    font-size: 1.5rem; /* Kích thước chữ lớn để thu hút */
+    font-weight: bold; /* Chữ in đậm */
+    text-align: center; /* Căn giữa văn bản */
+    border-radius: 12px; /* Bo góc mềm mại */
+    max-width: 1200px; /* Giới hạn chiều rộng */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Tạo chiều sâu cho chữ */
+    animation: fadeIn 1s ease-out; /* Hiệu ứng xuất hiện */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Chỉnh phần nút bấm */
+.button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Loại bỏ khoảng trắng dưới hình ảnh */
+}
+
+html, body {
+    max-width: 100%; /* Giới hạn chiều rộng */
+    overflow-x: hidden; /* Ngăn cuộn ngang */
+    transform: scale(1);
+    transform-origin: top left;
+}
+
+.logo img {
+        height: 80px;
+	animation: moveLogo 3s infinite ease-in-out; /* Lặp vô hạn */
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: black;
+            color: white;
+ }
+
+nav {
+  background: rgba(255, 0, 0, 0.1); /* tạm dùng để xem khối nav rộng bao nhiêu */
+}
+
+
+</style>
+
+<header>
+<nav>
+    <ul class="nav-bar">
+        <li class="dropdown">
+            <a href="#" id="lelifetoggle">Trang chủ</a>
+            <ul class="dropdown-menu" id="lelifemenu">
+                <li><a href="./index.html" onclick="showSection('about-ai-section')">Giới thiệu</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" id="guidetoggle"> DV Đào tạo ▼</a>
+            <ul class="dropdown-menu" id="guidemenu">
+                <li><a href="./coachingOnLine.html" onclick="showSection('coaching-section')">Học OnLine</a></li>
+                <li><a href="./coachingOffLine.html" onclick="showSection('congcu-section')">Học Offline</a></li>
+		<li><a href="./sach.html" onclick="showSection('sach-ai-section')">Sách</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" id="demostoggle">AI Tool ▼</a>
+            <ul class="dropdown-menu" id="demosmenu">
+                <li class="submenu">
+                    <a href="./etsyadsai.html" onclick="showSection('etsyads-ai-section')">Etsy Ads ▼</a>
+                    <ul class="submenu-list">
+                        <li><a href="#" onclick="showSection('history-section')">Lịch Sử Phân Tích</a></li>
+                    </ul>
+                </li>
+                <a href="./amazontrend.html" onclick="showSection('etsyads-ai-section')">Amazon Trend</a>
+            </ul>
+        </li>
+	<li class="dropdown">
+            <a href="#" id="lelifetoggle">Liên hệ</a>
+            <ul class="dropdown-menu" id="lelifemenu">
+                <li><a href="./lienhe.html" onclick="showSection('about-ai-section')">Liên hệ</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+</header>
+
+<body>
+<section id="contact-section" class="content-section" style="text-align: center; padding: 40px 20px;">
+  <h2 style="font-size: 28px; margin-bottom: 10px;">LIÊN HỆ CHÚNG TÔI</h2>
+  <p style="font-size: 16px; color: #666; max-width: 600px; margin: 0 auto;">
+    Hãy kết nối với đội ngũ LeLife để được hỗ trợ và đồng hành trong hành trình xây dựng thương hiệu kinh doanh online xuyên biên giới.
+  </p>
+
+  <div class="contact-cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px;">
+    
+    <!-- Quang -->
+    <div class="card" style="max-width: 300px; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <img src="static/images/quang.jpg" alt="Lê Duy Quang" style="width: 100%; border-radius: 10px; object-fit: cover; margin-bottom: 15px;">
+      <h3 style="margin: 0 0 5px; font-size: 18px;">Lê Duy Quang (Lelife)</h3>
+      <p style="margin: 0 0 10px; color: #777;">Giám đốc Công ty TNHH LeLife</p>
+      <p><strong>Email:</strong> <a href="mailto:quang.le@lelifeai.com">quang.le@lelifeai.com</a></p>
+      <p><strong>Hotline/Zalo:</strong> 0941 963 399</p>
+      <p style="margin-top: 10px;">10 năm kinh nghiệm bán hàng POD trên Etsy, Amazon, eBay. Đã đào tạo hơn 500 học viên trong & ngoài nước.</p>
+    </div>
+
+    <!-- Thảo Nguyên -->
+    <div class="card" style="max-width: 300px; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <img src="static/images/thaonguyen.jpg" alt="Thảo Nguyên" style="width: 100%; border-radius: 10px; object-fit: cover; margin-bottom: 15px;">
+      <h3 style="margin: 0 0 5px; font-size: 18px;">Thảo Nguyên</h3>
+      <p style="margin: 0 0 10px; color: #777;">Trợ lý & Quản lý Kinh doanh</p>
+      <p><strong>Email:</strong> <a href="mailto:thao.nguyen@lelifeai.com">thao.nguyen@lelifeai.com</a></p>
+      <p style="margin-top: 10px;">Phụ trách mảng kinh doanh trên các sàn TMĐT và hỗ trợ giám đốc trong đào tạo và các dự án chiến lược.</p>
+    </div>
+
+  </div>
+
+<!-- Social Media -->
+<div style="margin-top: 50px;">
+  <h4 style="font-size: 16px; color: #333;">Theo dõi LeLife trên mạng xã hội:</h4>
+  <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 10px;">
+    <a href="https://www.youtube.com/@QuangLeLife" target="_blank" style="color: #cc0000; font-weight: bold; text-decoration: none;">
+      YouTube: @QuangLeLife
+    </a>
+    <a href="https://www.tiktok.com/@lelifeofficial" target="_blank" style="color: #111111; font-weight: bold; text-decoration: none;">
+      TikTok: @lelifeofficial
+    </a>
+  </div>
+</div>
+
+
+<script>
+document.querySelectorAll(".dropdown > a").forEach(function (element) {
+    element.addEventListener("click", function (event) {
+        event.preventDefault();
+        const parentDropdown = this.parentElement;
+        parentDropdown.classList.toggle("open");
+    });
+});
+
+document.addEventListener('click', function (event) {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(function (dropdown) {
+        if (!dropdown.contains(event.target) && !event.target.closest('.dropdown-menu')) {
+            dropdown.classList.remove('open');
+        }
+    });
+});
+
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => section.style.display = 'none');
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) targetSection.style.display = 'block';
+}
+</script>
+
+<script src="/static/script.js"></script>
+<footer style="display: flex; justify-content: center; align-items: center; width: 100%; position: relative; bottom: 0; padding: 10px 0;">
+    <p>© 2025 LeLife Co., Ltd | Hotline: 0941 963 399 | Email: quang.le@lelifeai.com</p>
+</footer>
+</body>
+</html>
