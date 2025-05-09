@@ -391,37 +391,41 @@ nav {
 
 /* Vị trí nút Demos */
 /* Chỉnh kích thước và căn chỉnh menu dropdown */
-/* Căn giữa và cố định vị trí các nút trong menu */
 .nav-bar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;   /* Căn giữa toàn bộ menu */
   align-items: center;
   flex-wrap: nowrap;
+  gap: 6px;
+  padding: 0 10px;
   margin: 0 auto;
-  padding: 0 6px;
   list-style: none;
   width: 100%;
   box-sizing: border-box;
 }
 
-
 .nav-bar li {
-  list-style: none;  /* ✅ Xoá dấu chấm */
-  margin: 0;
-  padding: 0;
+  flex: 1 1 auto;             /* Cho phép các nút tự co giãn đều nhau */
+  text-align: center;
+}
+
+.nav-bar li:nth-child(1) {
+  order: 3; /* Trang chủ – chuyển sang trái DV Đào tạo */
 }
 
 .nav-bar li:nth-child(3) { /* Áp dụng cho mục Tài Liệu */
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
-
+.nav-bar li:nth-child(4) {
+  order: 1; /* Liên hệ – chuyển sát phải DV Đào tạo */
+}
 .nav-bar a:hover {
     background-color: #45a049; /* Màu khi rê chuột vào */
 }
 
-.nav-bar li:nth-child(2) { /* Áp dụng cho nút Demos */
-    margin-left: 20px; /* Tăng khoảng cách bên trái */
+.nav-bar li:nth-child(2) {
+  margin-left: 20px;     /* ❌ gây lệch riêng 1 nút */
 }
 
 img {
@@ -542,17 +546,14 @@ nav-bar {
 /* Nút Demos */
 .nav-bar li a {
   font-size: 13px;
-  padding: 5px 7px;
+  padding: 6px 10px;
   background-color: white;
   color: black;
   border-radius: 5px;
-  white-space: nowrap;
   text-decoration: none;
+  white-space: nowrap;
   display: inline-block;
-  text-align: center;
   box-sizing: border-box;
-  flex-shrink: 1;           /* ✅ Cho phép co nhỏ khi cần */
-   
 }
 
 .nav-bar li a:hover {
